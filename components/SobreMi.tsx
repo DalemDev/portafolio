@@ -3,16 +3,16 @@
 import { Download, CheckCircle2, User } from "lucide-react";
 
 const valores = [
-  "Comunicación clara durante todo el proyecto",
-  "Código limpio, documentado y mantenible",
-  "Entregas puntuales y compromisos reales",
-  "Soporte post-lanzamiento incluido",
+  "Visión end-to-end del ciclo de vida del software",
+  "Automatización por defecto, procesos manuales como excepción",
+  "Infraestructura tratada como código: reproducible y versionada",
+  "Comunicación directa y transparencia en cada decisión técnica",
 ];
 
 const stats = [
-  { valor: "3+", label: "Años de experiencia" },
-  { valor: "5+", label: "Proyectos entregados" },
-  { valor: "100%", label: "Código limpio y documentado" },
+  { valor: "2+", label: "Años en infraestructura productiva" },
+  { valor: "+20", label: "Servidores Linux administrados" },
+  { valor: "3", label: "Stacks de BD en producción" },
 ];
 
 export default function SobreMi() {
@@ -25,7 +25,6 @@ export default function SobreMi() {
             {/* Photo */}
             <div className="relative">
               <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-indigo-600/20 to-violet-600/20 border border-[rgba(99,102,241,0.3)] flex items-center justify-center overflow-hidden">
-                {/* Replace this div with your <img> when ready */}
                 <div className="flex flex-col items-center gap-3 text-[var(--text-muted)]">
                   <User size={64} strokeWidth={1} className="text-indigo-400/50" />
                   <span className="text-xs">Tu foto aquí</span>
@@ -67,17 +66,16 @@ export default function SobreMi() {
             </h2>
             <div className="space-y-4 text-[var(--text-muted)] leading-relaxed mb-8">
               <p>
-                Soy un Desarrollador Full Stack con más de 3 años construyendo
-                aplicaciones web que resuelven problemas reales. Me especializo
-                en el ecosistema JavaScript/TypeScript tanto en frontend como en
-                backend, y trabajo con PHP/Laravel para proyectos que lo
-                requieren.
+                Ingeniero DevOps/Infrastructure con más de 2 años de
+                responsabilidad directa sobre entornos productivos: administración
+                de +20 servidores Linux, implementación de pipelines CI/CD con
+                GitLab CI y gestión de entornos contenerizados con Docker.
               </p>
               <p>
-                Me formé de manera autodidacta y esa disciplina me enseñó a
-                aprender rápido, investigar a fondo y entregar soluciones sin
-                depender de que alguien me tome de la mano. Cada proyecto es una
-                oportunidad para hacer algo mejor que el anterior.
+                Diseñé e implementé desde cero el sistema de CI/CD de Ambiensa
+                S.A., eliminando despliegues manuales y reduciendo el riesgo de
+                errores humanos. Tengo visión end-to-end del ciclo de vida del
+                software y actualmente amplío conocimientos en AWS y Azure.
               </p>
             </div>
 
@@ -94,7 +92,7 @@ export default function SobreMi() {
             {/* Download CV */}
             <a
               href="/cv.pdf"
-              download="CV_Dalemberg_Garcia"
+              download="CV_Dalemberg_Garcia_DevOps"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(99,102,241,0.3)] text-[var(--text-muted)] hover:text-white hover:border-indigo-500 hover:bg-indigo-500/10 transition-all duration-200 text-sm font-medium"
             >
               <Download size={16} />

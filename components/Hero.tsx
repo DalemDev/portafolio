@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowDown, Terminal } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
 export default function Hero() {
@@ -30,38 +30,53 @@ export default function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-sm mb-8">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          Disponible para proyectos freelance
-          <Sparkles size={14} />
+          Disponible para nuevas oportunidades
+          <Terminal size={14} />
         </div>
 
         {/* Headline */}
         <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight">
-          Transformo tus ideas
+          DevOps /
           <br />
-          en{" "}
-          <span className="gradient-text">productos digitales</span>
+          <span className="gradient-text">Infrastructure Engineer</span>
         </h1>
 
         {/* Subheadline */}
         <p className="text-[var(--text-muted)] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-          Desarrollador Full Stack con 3+ años construyendo aplicaciones web
-          modernas. Creo soluciones que funcionan, escalan y generan resultados
-          reales para tu negocio.
+          2+ años de responsabilidad directa sobre infraestructura productiva.
+          +20 servidores Linux administrados, pipelines CI/CD implementados
+          desde cero y entornos contenerizados con Docker.
         </p>
+
+        {/* Stats row */}
+        <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
+          {[
+            { valor: "+20", label: "Servidores Linux" },
+            { valor: "2+", label: "Años en producción" },
+            { valor: "3", label: "Stacks de BD" },
+            { valor: "∞", label: "Pipelines CI/CD" },
+          ].map((s) => (
+            <div key={s.label} className="text-center">
+              <p className="text-2xl font-black gradient-text">{s.valor}</p>
+              <p className="text-xs text-[var(--text-muted)]">{s.label}</p>
+            </div>
+          ))}
+        </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a
-            href="#contacto"
+            href="#experiencia"
             className="px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5"
           >
-            Hablemos de tu proyecto
+            Ver mi experiencia
           </a>
           <a
-            href="#proyectos"
+            href="/cv.pdf"
+            download="CV_Dalemberg_Garcia_DevOps"
             className="px-8 py-4 rounded-xl border border-[rgba(99,102,241,0.3)] text-[var(--text-muted)] hover:text-white hover:border-indigo-500 font-semibold text-base transition-all duration-200 hover:-translate-y-0.5"
           >
-            Ver mi trabajo →
+            Descargar CV →
           </a>
         </div>
 
@@ -89,7 +104,7 @@ export default function Hero() {
 
         {/* Scroll indicator */}
         <a
-          href="#servicios"
+          href="#experiencia"
           className="inline-flex flex-col items-center gap-2 text-[var(--text-muted)] hover:text-indigo-400 transition-colors text-xs"
         >
           <span>Scroll para explorar</span>

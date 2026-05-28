@@ -5,7 +5,7 @@ import { Menu, X, Code2 } from "lucide-react";
 
 const links = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Servicios", href: "#servicios" },
+  { label: "Experiencia", href: "#experiencia" },
   { label: "Sobre mí", href: "#sobre-mi" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
@@ -60,7 +60,7 @@ export default function NavBar() {
               href="#contacto"
               className="ml-4 px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white transition-all duration-200 shadow-lg shadow-indigo-500/20"
             >
-              Contratar
+              Contactar
             </a>
           </li>
         </ul>
@@ -96,7 +96,7 @@ export default function NavBar() {
                 onClick={close}
                 className="block text-center px-5 py-3 text-sm font-semibold rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 text-white"
               >
-                Contratar
+                Contactar
               </a>
             </li>
           </ul>

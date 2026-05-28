@@ -13,23 +13,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dalemberg García | Desarrollador Full Stack",
+  title: "Dalemberg García | DevOps / Infrastructure Engineer",
   description:
-    "Desarrollador Full Stack con 3+ años de experiencia construyendo aplicaciones web modernas. Disponible para proyectos freelance: desarrollo web completo, frontend, backend y consultoría técnica.",
+    "DevOps / Infrastructure Engineer con 2+ años de responsabilidad directa sobre infraestructura productiva: +20 servidores Linux, pipelines CI/CD con GitLab CI, Docker, y gestión de entornos en producción.",
   keywords: [
-    "desarrollador full stack",
-    "freelance",
-    "desarrollo web",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Laravel",
+    "devops engineer",
+    "infraestructura",
+    "linux",
+    "docker",
+    "gitlab ci",
+    "github actions",
+    "nginx",
+    "ci/cd",
+    "kubernetes",
+    "aws",
+    "azure",
   ],
   authors: [{ name: "Dalemberg García" }],
   openGraph: {
-    title: "Dalemberg García | Desarrollador Full Stack",
+    title: "Dalemberg García | DevOps / Infrastructure Engineer",
     description:
-      "Desarrollo web que convierte ideas en productos digitales reales.",
+      "Ingeniero DevOps con experiencia real en infraestructura productiva, CI/CD y administración de servidores Linux a escala.",
     type: "website",
   },
 };

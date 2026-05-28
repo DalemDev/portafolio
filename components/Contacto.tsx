@@ -5,22 +5,11 @@ import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import emailjs from "@emailjs/browser";
 
-const tiposProyecto = [
-  "Sitio web / Landing page",
-  "Aplicación web completa",
-  "E-commerce / Tienda online",
-  "API / Backend",
-  "Dashboard / Panel admin",
+const motivosContacto = [
+  "Oferta laboral / Oportunidad",
   "Consultoría técnica",
+  "Colaboración en proyecto",
   "Otro",
-];
-
-const presupuestos = [
-  "Menos de $500 USD",
-  "$500 – $1,500 USD",
-  "$1,500 – $3,000 USD",
-  "$3,000+ USD",
-  "Aún no lo sé",
 ];
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -31,8 +20,7 @@ export default function Contacto() {
   const [form, setForm] = useState({
     nombre: "",
     correo: "",
-    tipo: "",
-    presupuesto: "",
+    asunto: "",
     mensaje: "",
   });
 
@@ -54,7 +42,7 @@ export default function Contacto() {
         "TWnIiqjHaFNU-TEo5"
       );
       setStatus("success");
-      setForm({ nombre: "", correo: "", tipo: "", presupuesto: "", mensaje: "" });
+      setForm({ nombre: "", correo: "", asunto: "", mensaje: "" });
     } catch {
       setStatus("error");
     }
@@ -71,14 +59,14 @@ export default function Contacto() {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            ¿Tienes un proyecto?
+            ¿Tienes una oportunidad?
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Hablemos de <span className="gradient-text">tu idea</span>
+            Hablemos <span className="gradient-text">directamente</span>
           </h2>
           <p className="text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">
-            Cuéntame qué necesitas. Respondo en menos de 24 horas con una
-            evaluación honesta de si puedo ayudarte.
+            Estoy abierto a roles DevOps, infraestructura o SRE. Respondo en
+            menos de 24 horas.
           </p>
         </div>
 
@@ -112,7 +100,7 @@ export default function Contacto() {
                   type="email"
                   name="correo"
                   required
-                  placeholder="tu@correo.com"
+                  placeholder="tu@empresa.com"
                   value={form.correo}
                   onChange={handleChange}
                   className={inputClass}
@@ -120,58 +108,36 @@ export default function Contacto() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs text-[var(--text-muted)] mb-1.5 ml-1">
-                  Tipo de proyecto
-                </label>
-                <select
-                  name="tipo"
-                  value={form.tipo}
-                  onChange={handleChange}
-                  className={inputClass}
-                >
-                  <option value="" disabled>
-                    Selecciona una opción
+            <div>
+              <label className="block text-xs text-[var(--text-muted)] mb-1.5 ml-1">
+                Motivo
+              </label>
+              <select
+                name="asunto"
+                value={form.asunto}
+                onChange={handleChange}
+                className={inputClass}
+              >
+                <option value="" disabled>
+                  Selecciona una opción
+                </option>
+                {motivosContacto.map((m) => (
+                  <option key={m} value={m}>
+                    {m}
                   </option>
-                  {tiposProyecto.map((t) => (
-                    <option key={t} value={t}>
-                      {t}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-xs text-[var(--text-muted)] mb-1.5 ml-1">
-                  Presupuesto estimado
-                </label>
-                <select
-                  name="presupuesto"
-                  value={form.presupuesto}
-                  onChange={handleChange}
-                  className={inputClass}
-                >
-                  <option value="" disabled>
-                    Selecciona un rango
-                  </option>
-                  {presupuestos.map((p) => (
-                    <option key={p} value={p}>
-                      {p}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                ))}
+              </select>
             </div>
 
             <div>
               <label className="block text-xs text-[var(--text-muted)] mb-1.5 ml-1">
-                Cuéntame más *
+                Mensaje *
               </label>
               <textarea
                 name="mensaje"
                 required
                 rows={5}
-                placeholder="Describe tu proyecto, qué problema resuelve y qué esperas del resultado..."
+                placeholder="Cuéntame sobre la oportunidad, el equipo o el proyecto..."
                 value={form.mensaje}
                 onChange={handleChange}
                 className={`${inputClass} resize-none`}
@@ -198,7 +164,7 @@ export default function Contacto() {
             {status === "error" && (
               <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
                 <AlertCircle size={16} />
-                Hubo un error. Escríbeme directamente a tu correo.
+                Hubo un error. Escríbeme directamente a dalemberismael7@gmail.com
               </div>
             )}
           </form>
@@ -207,14 +173,14 @@ export default function Contacto() {
           <div className="lg:col-span-2 flex flex-col gap-6">
             {/* Info card */}
             <div className="card p-6">
-              <h3 className="font-bold mb-4">¿Por qué trabajar conmigo?</h3>
+              <h3 className="font-bold mb-4">¿Por qué contratarme?</h3>
               <ul className="space-y-3 text-sm text-[var(--text-muted)]">
                 {[
-                  "Respuesta en menos de 24h",
-                  "Presupuesto sin compromiso",
-                  "Código limpio que podrás mantener",
-                  "Soporte 30 días post-entrega",
-                  "Comunicación directa, sin intermediarios",
+                  "2+ años en infraestructura productiva real",
+                  "+20 servidores Linux administrados",
+                  "CI/CD implementado desde cero, sin supervisión",
+                  "Perfil versátil: DevOps + QA + FullStack",
+                  "Comunicación directa y respuesta rápida",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />

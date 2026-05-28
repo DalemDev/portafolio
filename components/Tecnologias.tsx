@@ -2,55 +2,59 @@
 
 const grupos = [
   {
-    categoria: "Frontend",
+    categoria: "DevOps & Infraestructura",
     techs: [
-      { nombre: "HTML5", emoji: "🌐" },
-      { nombre: "CSS3", emoji: "🎨" },
-      { nombre: "JavaScript", emoji: "⚡" },
-      { nombre: "TypeScript", emoji: "🔷" },
-      { nombre: "React", emoji: "⚛️" },
-      { nombre: "Next.js", emoji: "▲" },
-      { nombre: "Tailwind", emoji: "🌊" },
+      { nombre: "Linux (Admin)", emoji: "🐧" },
+      { nombre: "Docker & Compose", emoji: "🐳" },
+      { nombre: "GitLab CI/CD", emoji: "🦊" },
+      { nombre: "GitHub Actions", emoji: "⚙️" },
+      { nombre: "Nginx", emoji: "🟢" },
+      { nombre: "Apache", emoji: "🪶" },
+      { nombre: "HAProxy", emoji: "⚖️" },
+      { nombre: "Bash / Cron", emoji: "💻" },
+      { nombre: "SSL / DNS", emoji: "🔒" },
     ],
     color: "from-indigo-500/10 to-violet-500/10",
     border: "border-indigo-500/20",
     badge: "text-indigo-400 bg-indigo-500/10",
   },
   {
-    categoria: "Backend",
+    categoria: "Cloud (AWS · Azure)",
     techs: [
-      { nombre: "Node.js", emoji: "🟢" },
-      { nombre: "Express", emoji: "🚂" },
-      { nombre: "Laravel", emoji: "🔴" },
-      { nombre: "PHP", emoji: "🐘" },
-    ],
-    color: "from-violet-500/10 to-pink-500/10",
-    border: "border-violet-500/20",
-    badge: "text-violet-400 bg-violet-500/10",
-  },
-  {
-    categoria: "Bases de datos",
-    techs: [
-      { nombre: "MySQL", emoji: "🐬" },
-      { nombre: "PostgreSQL", emoji: "🐘" },
-      { nombre: "MongoDB", emoji: "🍃" },
-      { nombre: "Firebase", emoji: "🔥" },
+      { nombre: "EC2 / S3 / IAM", emoji: "☁️" },
+      { nombre: "Azure VMs", emoji: "🔷" },
+      { nombre: "Redes / VPC", emoji: "🌐" },
     ],
     color: "from-cyan-500/10 to-indigo-500/10",
     border: "border-cyan-500/20",
     badge: "text-cyan-400 bg-cyan-500/10",
   },
   {
-    categoria: "Herramientas",
+    categoria: "QA & Testing",
     techs: [
-      { nombre: "Git", emoji: "🌿" },
-      { nombre: "Docker", emoji: "🐳" },
-      { nombre: "Postman", emoji: "📮" },
-      { nombre: "VS Code", emoji: "💻" },
+      { nombre: "Cypress (E2E)", emoji: "🧪" },
+      { nombre: "Testing funcional", emoji: "✅" },
+      { nombre: "Testing integración", emoji: "🔗" },
+      { nombre: "Diseño de casos", emoji: "📋" },
     ],
     color: "from-green-500/10 to-cyan-500/10",
     border: "border-green-500/20",
     badge: "text-green-400 bg-green-500/10",
+  },
+  {
+    categoria: "FullStack & Bases de datos",
+    techs: [
+      { nombre: "Laravel", emoji: "🔴" },
+      { nombre: "React", emoji: "⚛️" },
+      { nombre: "PHP · JS", emoji: "⚡" },
+      { nombre: "MySQL", emoji: "🐬" },
+      { nombre: "PostgreSQL", emoji: "🐘" },
+      { nombre: "MongoDB", emoji: "🍃" },
+      { nombre: "Git / GitLab / GitHub", emoji: "🌿" },
+    ],
+    color: "from-violet-500/10 to-pink-500/10",
+    border: "border-violet-500/20",
+    badge: "text-violet-400 bg-violet-500/10",
   },
 ];
 
@@ -67,8 +71,8 @@ export default function Tecnologias() {
             Herramientas que <span className="gradient-text">domino</span>
           </h2>
           <p className="text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">
-            Elijo la tecnología adecuada para cada problema, no la que está de
-            moda.
+            Tecnologías con las que he trabajado en entornos productivos reales,
+            no solo en proyectos de práctica.
           </p>
         </div>
 

@@ -1,119 +1,139 @@
 "use client";
 
-import { Globe, Layout, Server, MessagesSquare } from "lucide-react";
+import { Briefcase, CheckCircle2 } from "lucide-react";
 
-const servicios = [
+const experiencias = [
   {
-    icon: Globe,
-    titulo: "Desarrollo Web Completo",
+    cargo: "Ingeniero QA",
+    empresa: "Ambiensa S.A.",
+    periodo: "Mar 2025 – Presente",
+    actual: true,
     descripcion:
-      "Construyo tu producto de principio a fin: desde la base de datos hasta la interfaz de usuario. Ideal para startups y negocios que quieren lanzar rápido.",
-    items: ["Tiendas online", "Apps web a medida", "Sistemas internos", "MVP en tiempo récord"],
-    color: "from-indigo-500 to-violet-500",
-    glow: "rgba(99,102,241,0.15)",
+      "Responsable de la calidad del software en sistemas productivos. Diseño e implementación de suite de pruebas automatizadas E2E integradas al pipeline CI/CD.",
+    logros: [
+      "Suite E2E automatizada con Cypress integrada al CI/CD",
+      "Definición de estrategia de testing funcional e integración",
+      "Validación continua de releases en entornos productivos",
+    ],
+    techs: ["Cypress", "GitLab CI", "Testing E2E", "Testing integración"],
+    color: "from-indigo-500/10 to-violet-500/10",
+    border: "border-indigo-500/20",
+    badge: "text-indigo-400 bg-indigo-500/10",
   },
   {
-    icon: Layout,
-    titulo: "Frontend & UI",
+    cargo: "Desarrollador FullStack & DevOps",
+    empresa: "Ambiensa S.A.",
+    periodo: "Jul 2023 – Mar 2025",
+    actual: false,
     descripcion:
-      "Interfaces responsivas, accesibles y pixel-perfect que convierten visitantes en clientes. Priorizo la experiencia de usuario y el rendimiento.",
-    items: ["Landing pages", "Dashboards", "Diseño responsivo", "Animaciones web"],
-    color: "from-violet-500 to-pink-500",
-    glow: "rgba(139,92,246,0.15)",
+      "Rol central en infraestructura y DevOps de la empresa. Administración de toda la infraestructura productiva, diseño del sistema CI/CD desde cero y despliegue de aplicaciones completas.",
+    logros: [
+      "Administración de +20 servidores Linux (producción, preproducción y BD)",
+      "CI/CD con GitLab CI implementado desde cero, eliminando despliegues manuales",
+      "Stacks React + Laravel + Docker + Apache desplegados en producción con SSL",
+      "Gestión de bases de datos productivas: MySQL, PostgreSQL y MongoDB",
+    ],
+    techs: ["Linux", "GitLab CI", "Docker", "Nginx", "Apache", "MySQL", "PostgreSQL", "MongoDB", "Laravel", "React"],
+    color: "from-violet-500/10 to-cyan-500/10",
+    border: "border-violet-500/20",
+    badge: "text-violet-400 bg-violet-500/10",
   },
   {
-    icon: Server,
-    titulo: "Backend & APIs",
+    cargo: "Desarrollador FullStack",
+    empresa: "Viamatica S.A.",
+    periodo: "May 2023 – Jul 2023",
+    actual: false,
     descripcion:
-      "APIs REST robustas, seguras y bien documentadas. Arquitecturas que escalan y bases de datos optimizadas para tu caso de uso.",
-    items: ["APIs REST", "Autenticación JWT", "Bases de datos", "Integraciones"],
-    color: "from-cyan-500 to-indigo-500",
-    glow: "rgba(6,182,212,0.15)",
-  },
-  {
-    icon: MessagesSquare,
-    titulo: "Consultoría Técnica",
-    descripcion:
-      "¿Tu equipo necesita dirección? Reviso tu código, propongo mejoras de arquitectura y te ayudo a tomar las decisiones técnicas correctas.",
-    items: ["Code review", "Arquitectura", "Refactoring", "Mentoría técnica"],
-    color: "from-green-500 to-cyan-500",
-    glow: "rgba(16,185,129,0.15)",
+      "Proyecto de duración definida por contrato. Desarrollo de APIs REST y construcción de interfaces de usuario.",
+    logros: [
+      "Desarrollo de APIs REST documentadas",
+      "Construcción de interfaces con JavaScript y PHP",
+    ],
+    techs: ["JavaScript", "PHP", "REST APIs"],
+    color: "from-cyan-500/10 to-green-500/10",
+    border: "border-cyan-500/20",
+    badge: "text-cyan-400 bg-cyan-500/10",
   },
 ];
 
-export default function Servicios() {
+export default function Experiencia() {
   return (
-    <section id="servicios" className="py-24 px-6">
+    <section id="experiencia" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            ¿Qué puedo hacer por ti?
+            Trayectoria profesional
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Mis <span className="gradient-text">servicios</span>
+            Experiencia <span className="gradient-text">laboral</span>
           </h2>
           <p className="text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">
-            Ofrezco soluciones completas adaptadas a lo que tu negocio necesita,
-            con comunicación clara y entregas puntuales.
+            Más de 2 años con responsabilidad directa sobre infraestructura
+            productiva real.
           </p>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {servicios.map((s) => {
-            const Icon = s.icon;
-            return (
-              <div
-                key={s.titulo}
-                className="card p-8 group cursor-default"
-                style={{
-                  boxShadow: `0 0 0 0 ${s.glow}`,
-                  transition: "all 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow = `0 0 40px 0 ${s.glow}`;
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow = `0 0 0 0 ${s.glow}`;
-                }}
-              >
-                {/* Icon */}
-                <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <Icon size={22} className="text-white" />
+        {/* Timeline */}
+        <div className="space-y-6">
+          {experiencias.map((exp) => (
+            <div
+              key={exp.cargo + exp.empresa}
+              className={`p-8 rounded-2xl bg-gradient-to-br ${exp.color} border ${exp.border} group`}
+            >
+              {/* Header row */}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-lg bg-[var(--bg-card)] border border-[rgba(99,102,241,0.2)] flex items-center justify-center shrink-0">
+                    <Briefcase size={14} className="text-indigo-400" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-lg font-bold">{exp.cargo}</h3>
+                      {exp.actual && (
+                        <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-500/15 border border-green-500/30 text-green-400">
+                          ACTUAL
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-indigo-300 text-sm font-medium">{exp.empresa}</p>
+                  </div>
                 </div>
-
-                <h3 className="text-xl font-bold mb-3">{s.titulo}</h3>
-                <p className="text-[var(--text-muted)] leading-relaxed mb-6 text-sm">
-                  {s.descripcion}
-                </p>
-
-                {/* Items */}
-                <ul className="flex flex-wrap gap-2">
-                  {s.items.map((item) => (
-                    <li
-                      key={item}
-                      className="px-3 py-1 text-xs rounded-full border border-[rgba(99,102,241,0.25)] text-[var(--text-muted)]"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <span
+                  className={`self-start px-3 py-1 rounded-full text-xs font-semibold shrink-0 ${exp.badge}`}
+                >
+                  {exp.periodo}
+                </span>
               </div>
-            );
-          })}
-        </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <a
-            href="#contacto"
-            className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:-translate-y-0.5"
-          >
-            Solicitar presupuesto gratuito
-          </a>
+              {/* Description */}
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-5 ml-11">
+                {exp.descripcion}
+              </p>
+
+              {/* Logros */}
+              <ul className="space-y-2 mb-5 ml-11">
+                {exp.logros.map((logro) => (
+                  <li key={logro} className="flex items-start gap-2 text-sm">
+                    <CheckCircle2 size={14} className="text-indigo-400 shrink-0 mt-0.5" />
+                    <span className="text-[var(--text-muted)]">{logro}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Techs */}
+              <div className="flex flex-wrap gap-2 ml-11">
+                {exp.techs.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2.5 py-1 text-xs rounded-lg bg-[rgba(99,102,241,0.08)] border border-[rgba(99,102,241,0.2)] text-indigo-300"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
