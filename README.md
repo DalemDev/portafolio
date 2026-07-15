@@ -1,4 +1,4 @@
-# Dalemberg García — Portafolio Personal
+# Dalemberg Garcia — Portafolio Personal
 
 Portafolio personal construido con Next.js 16, React 19 y Tailwind CSS v4.
 
