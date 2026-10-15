@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dalemberg García | DevOps / Infrastructure Engineer",
+  title: "Dalemberg Garcia | DevOps / Infrastructure Engineer",
   description:
     "DevOps / Infrastructure Engineer con 2+ años de responsabilidad directa sobre infraestructura productiva: +20 servidores Linux, pipelines CI/CD con GitLab CI, Docker, y gestión de entornos en producción.",
   keywords: [
@@ -29,13 +29,20 @@ export const metadata: Metadata = {
     "aws",
     "azure",
   ],
-  authors: [{ name: "Dalemberg García" }],
+  authors: [{ name: "Dalemberg Garcia" }],
   openGraph: {
-    title: "Dalemberg García | DevOps / Infrastructure Engineer",
+    title: "Dalemberg Garcia | DevOps / Infrastructure Engineer",
     description:
       "Ingeniero DevOps con experiencia real en infraestructura productiva, CI/CD y administración de servidores Linux a escala.",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafaf9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0e0d" },
+  ],
 };
 
 export default function RootLayout({

@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useRef, FormEvent } from "react";
-import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import Section from "@/components/Section";
+
+const EMAIL = "dalemberismael7@gmail.com";
 
 const motivosContacto = [
   "Oferta laboral / Oportunidad",
@@ -50,173 +52,110 @@ export default function Contacto() {
     setTimeout(() => setStatus("idle"), 5000);
   };
 
+  const labelClass = "block font-mono text-[11px] uppercase tracking-[0.15em] text-muted";
   const inputClass =
-    "w-full px-4 py-3 rounded-xl bg-[var(--bg-card)] border border-[rgba(99,102,241,0.2)] text-white placeholder-[var(--text-muted)] focus:outline-none focus:border-indigo-500 transition-colors text-sm";
+    "mt-2 w-full rounded-none border-0 border-b border-line bg-transparent py-2.5 text-base text-fg placeholder:text-subtle transition-colors focus:border-fg focus:outline-none";
 
   return (
-    <section id="contacto" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            ¿Tienes una oportunidad?
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Hablemos <span className="gradient-text">directamente</span>
-          </h2>
-          <p className="text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">
-            Estoy abierto a roles DevOps, infraestructura o SRE. Respondo en
-            menos de 24 horas.
-          </p>
+    <Section id="contacto" label="Contacto">
+      <p className="max-w-xl text-2xl leading-snug tracking-tight sm:text-3xl">
+        Abierto a roles de DevOps, infraestructura o SRE.
+      </p>
+      <p className="mt-4 text-muted">
+        Escríbeme a{" "}
+        <a href={`mailto:${EMAIL}`} className="link text-fg">
+          {EMAIL}
+        </a>{" "}
+        o usa el formulario.
+      </p>
+
+      <form ref={formRef} onSubmit={handleSubmit} className="mt-14 max-w-2xl space-y-8">
+        <div className="grid gap-8 sm:grid-cols-2">
+          <label className={labelClass}>
+            Nombre
+            <input
+              type="text"
+              name="nombre"
+              required
+              autoComplete="name"
+              placeholder="Tu nombre"
+              value={form.nombre}
+              onChange={handleChange}
+              className={inputClass}
+            />
+          </label>
+          <label className={labelClass}>
+            Correo
+            <input
+              type="email"
+              name="correo"
+              required
+              autoComplete="email"
+              placeholder="tu@empresa.com"
+              value={form.correo}
+              onChange={handleChange}
+              className={inputClass}
+            />
+          </label>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-          {/* Form */}
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="lg:col-span-3 space-y-4"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs text-[var(--text-muted)] mb-1.5 ml-1">
-                  Nombre *
-                </label>
-                <input
-                  type="text"
-                  name="nombre"
-                  required
-                  placeholder="Tu nombre"
-                  value={form.nombre}
-                  onChange={handleChange}
-                  className={inputClass}
-                />
-              </div>
-              <div>
-                <label className="block text-xs text-[var(--text-muted)] mb-1.5 ml-1">
-                  Correo *
-                </label>
-                <input
-                  type="email"
-                  name="correo"
-                  required
-                  placeholder="tu@empresa.com"
-                  value={form.correo}
-                  onChange={handleChange}
-                  className={inputClass}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs text-[var(--text-muted)] mb-1.5 ml-1">
-                Motivo
-              </label>
-              <select
-                name="asunto"
-                value={form.asunto}
-                onChange={handleChange}
-                className={inputClass}
-              >
-                <option value="" disabled>
-                  Selecciona una opción
-                </option>
-                {motivosContacto.map((m) => (
-                  <option key={m} value={m}>
-                    {m}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-xs text-[var(--text-muted)] mb-1.5 ml-1">
-                Mensaje *
-              </label>
-              <textarea
-                name="mensaje"
-                required
-                rows={5}
-                placeholder="Cuéntame sobre la oportunidad, el equipo o el proyecto..."
-                value={form.mensaje}
-                onChange={handleChange}
-                className={`${inputClass} resize-none`}
-              />
-            </div>
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold transition-all duration-200 shadow-lg shadow-indigo-500/20 disabled:opacity-60 disabled:cursor-not-allowed"
+        <label className={labelClass}>
+          Motivo
+          <span className="relative block">
+            <select
+              name="asunto"
+              value={form.asunto}
+              onChange={handleChange}
+              className={`${inputClass} cursor-pointer appearance-none pr-8 ${
+                form.asunto ? "" : "text-subtle"
+              }`}
             >
-              <Send size={16} />
-              {status === "sending" ? "Enviando..." : "Enviar mensaje"}
-            </button>
+              <option value="" disabled>
+                Selecciona una opción
+              </option>
+              {motivosContacto.map((m) => (
+                <option key={m} value={m} className="bg-bg text-fg">
+                  {m}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              size={16}
+              strokeWidth={1.5}
+              className="pointer-events-none absolute right-0 top-1/2 mt-1 -translate-y-1/2 text-muted"
+            />
+          </span>
+        </label>
 
-            {/* Feedback */}
-            {status === "success" && (
-              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm">
-                <CheckCircle size={16} />
-                ¡Mensaje enviado! Te respondo en menos de 24 horas.
-              </div>
-            )}
-            {status === "error" && (
-              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
-                <AlertCircle size={16} />
-                Hubo un error. Escríbeme directamente a dalemberismael7@gmail.com
-              </div>
-            )}
-          </form>
+        <label className={labelClass}>
+          Mensaje
+          <textarea
+            name="mensaje"
+            required
+            rows={4}
+            placeholder="Cuéntame sobre el rol, el equipo o el proyecto"
+            value={form.mensaje}
+            onChange={handleChange}
+            className={`${inputClass} resize-none`}
+          />
+        </label>
 
-          {/* Sidebar info */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
-            {/* Info card */}
-            <div className="card p-6">
-              <h3 className="font-bold mb-4">¿Por qué contratarme?</h3>
-              <ul className="space-y-3 text-sm text-[var(--text-muted)]">
-                {[
-                  "2+ años en infraestructura productiva real",
-                  "+20 servidores Linux administrados",
-                  "CI/CD implementado desde cero, sin supervisión",
-                  "Perfil versátil: DevOps + QA + FullStack",
-                  "Comunicación directa y respuesta rápida",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:gap-6">
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-fg px-6 py-3 text-sm font-medium text-bg transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {status === "sending" ? "Enviando…" : "Enviar mensaje"}
+            <ArrowRight size={15} strokeWidth={1.5} />
+          </button>
 
-            {/* Social links */}
-            <div className="card p-6">
-              <h3 className="font-bold mb-4">También aquí</h3>
-              <div className="flex flex-col gap-3">
-                <a
-                  href="https://github.com/DalemDev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl border border-[rgba(99,102,241,0.2)] text-[var(--text-muted)] hover:text-white hover:border-indigo-500 hover:bg-indigo-500/10 transition-all text-sm"
-                >
-                  <GithubIcon size={16} />
-                  GitHub · DalemDev
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/dalemberg-garcia-688489216/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl border border-[rgba(99,102,241,0.2)] text-[var(--text-muted)] hover:text-white hover:border-indigo-500 hover:bg-indigo-500/10 transition-all text-sm"
-                >
-                  <LinkedinIcon size={16} />
-                  LinkedIn · Dalemberg García
-                </a>
-              </div>
-            </div>
-          </div>
+          <p aria-live="polite" className="text-sm text-muted">
+            {status === "success" && "Mensaje enviado. Te respondo pronto."}
+            {status === "error" && `No se pudo enviar. Escríbeme a ${EMAIL}.`}
+          </p>
         </div>
-      </div>
-    </section>
+      </form>
+    </Section>
   );
 }

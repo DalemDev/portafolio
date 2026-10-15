@@ -1,114 +1,50 @@
-"use client";
-
-import { ArrowDown, Terminal } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+import { ArrowUpRight, ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section
-      id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-16"
-    >
-      {/* Background blobs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-600/5 rounded-full blur-3xl" />
-      </div>
+    <section id="inicio" className="pt-32 pb-20 sm:pt-40 md:pt-48 md:pb-28">
+      <h1 className="text-4xl font-medium leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+        Dalemberg Garcia
+      </h1>
+      <p className="mt-3 text-xl tracking-tight text-muted sm:text-2xl md:text-3xl">
+        DevOps & Infrastructure Engineer
+      </p>
 
-      {/* Grid pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+      <p className="mt-10 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+        Llevo más de dos años a cargo de infraestructura en producción. Mi
+        trabajo es que el software llegue a producción de forma automática,
+        segura y sin sorpresas, y que se mantenga estable una vez ahí.
+      </p>
 
-      <div className="relative max-w-4xl mx-auto text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-sm mb-8">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          Disponible para nuevas oportunidades
-          <Terminal size={14} />
-        </div>
-
-        {/* Headline */}
-        <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight">
-          DevOps /
-          <br />
-          <span className="gradient-text">Infrastructure Engineer</span>
-        </h1>
-
-        {/* Subheadline */}
-        <p className="text-[var(--text-muted)] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-          2+ años de responsabilidad directa sobre infraestructura productiva.
-          +20 servidores Linux administrados, pipelines CI/CD implementados
-          desde cero y entornos contenerizados con Docker.
-        </p>
-
-        {/* Stats row */}
-        <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
-          {[
-            { valor: "+20", label: "Servidores Linux" },
-            { valor: "2+", label: "Años en producción" },
-            { valor: "3", label: "Stacks de BD" },
-            { valor: "∞", label: "Pipelines CI/CD" },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-2xl font-black gradient-text">{s.valor}</p>
-              <p className="text-xs text-[var(--text-muted)]">{s.label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a
-            href="#experiencia"
-            className="px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5"
-          >
-            Ver mi experiencia
-          </a>
-          <a
-            href="/cv.pdf"
-            download="CV_Dalemberg_Garcia_DevOps"
-            className="px-8 py-4 rounded-xl border border-[rgba(99,102,241,0.3)] text-[var(--text-muted)] hover:text-white hover:border-indigo-500 font-semibold text-base transition-all duration-200 hover:-translate-y-0.5"
-          >
-            Descargar CV →
-          </a>
-        </div>
-
-        {/* Social links */}
-        <div className="flex items-center justify-center gap-4 mb-16">
-          <a
-            href="https://github.com/DalemDev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-xl border border-[rgba(99,102,241,0.2)] text-[var(--text-muted)] hover:text-white hover:border-indigo-500 hover:bg-indigo-500/10 transition-all duration-200"
-            aria-label="GitHub"
-          >
-            <GithubIcon size={20} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/dalemberg-garcia-688489216/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-xl border border-[rgba(99,102,241,0.2)] text-[var(--text-muted)] hover:text-white hover:border-indigo-500 hover:bg-indigo-500/10 transition-all duration-200"
-            aria-label="LinkedIn"
-          >
-            <LinkedinIcon size={20} />
-          </a>
-        </div>
-
-        {/* Scroll indicator */}
+      <div className="mt-12 flex flex-wrap items-center gap-x-7 gap-y-4 text-sm">
         <a
-          href="#experiencia"
-          className="inline-flex flex-col items-center gap-2 text-[var(--text-muted)] hover:text-indigo-400 transition-colors text-xs"
+          href="#contacto"
+          className="rounded-full bg-fg px-5 py-2.5 font-medium text-bg transition-opacity hover:opacity-80"
         >
-          <span>Scroll para explorar</span>
-          <ArrowDown size={16} className="animate-bounce" />
+          Contactar
+        </a>
+        <a
+          href="/cv.pdf"
+          download="cv_dalemberg_garcia.pdf"
+          className="link inline-flex items-center gap-1"
+        >
+          Descargar CV <ArrowDown size={14} strokeWidth={1.5} />
+        </a>
+        <a
+          href="https://github.com/DalemDev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link inline-flex items-center gap-1"
+        >
+          GitHub <ArrowUpRight size={14} strokeWidth={1.5} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/dalemberg-garcia-688489216/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link inline-flex items-center gap-1"
+        >
+          LinkedIn <ArrowUpRight size={14} strokeWidth={1.5} />
         </a>
       </div>
     </section>

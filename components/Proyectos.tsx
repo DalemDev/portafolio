@@ -1,126 +1,71 @@
-"use client";
-
-import { CheckCircle } from "lucide-react";
-import { GithubIcon } from "@/components/Icons";
+import { ArrowUpRight } from "lucide-react";
+import Section from "@/components/Section";
 
 const logros = [
   {
     numero: "01",
-    titulo: "Pipeline CI/CD desde cero con GitLab CI",
-    empresa: "Ambiensa S.A. · 2023–2025",
+    titulo: "Pipeline de CI/CD con GitLab CI",
+    contexto: "Ambiensa S.A. · 2023–2025",
     descripcion:
-      "Diseñé e implementé el sistema de CI/CD completo de la empresa desde cero. Automaticé los despliegues a entornos productivos y pre-productivos, eliminando procesos manuales y reduciendo el riesgo de errores humanos en cada release.",
+      "Diseñé e implementé el CI/CD de la empresa desde cero. Los despliegues a producción y preproducción pasaron a ser automáticos, con menos pasos manuales y menos errores en cada release.",
     techs: ["GitLab CI", "Docker", "Linux", "Bash", "SSH"],
-    color: "from-indigo-500 to-violet-500",
   },
   {
     numero: "02",
-    titulo: "Administración de infraestructura Linux a escala",
-    empresa: "Ambiensa S.A. · 2023–2025",
+    titulo: "Infraestructura Linux en producción",
+    contexto: "Ambiensa S.A. · 2023–2025",
     descripcion:
-      "Responsable de +20 servidores Linux en entornos de producción, preproducción y bases de datos. Configuración de Nginx, Apache y HAProxy, gestión de SSL/DNS, automatización con Bash y Cron, y monitoreo de disponibilidad.",
+      "Más de 20 servidores Linux entre producción, preproducción y bases de datos. Configuración de Nginx, Apache y HAProxy, certificados SSL y DNS, tareas automatizadas con Bash y Cron, y monitoreo de disponibilidad.",
     techs: ["Linux", "Nginx", "Apache", "HAProxy", "SSL/DNS", "Bash", "Cron"],
-    color: "from-violet-500 to-cyan-500",
   },
   {
     numero: "03",
-    titulo: "Suite E2E automatizada con Cypress integrada al CI/CD",
-    empresa: "Ambiensa S.A. · 2025–Presente",
+    titulo: "Pruebas E2E integradas al pipeline",
+    contexto: "Ambiensa S.A. · 2025–hoy",
     descripcion:
-      "Diseñé e implementé una suite de pruebas automatizadas E2E con Cypress, integrada directamente al pipeline CI/CD para validación continua de releases antes de llegar a producción. Definí la estrategia de testing funcional e integración para los sistemas en producción.",
-    techs: ["Cypress", "GitLab CI", "JavaScript", "Testing E2E"],
-    color: "from-cyan-500 to-green-500",
+      "Suite de pruebas E2E con Playwright que corre dentro del CI/CD y valida cada release antes de producción. Incluye la estrategia de testing funcional y de integración de los sistemas productivos.",
+    techs: ["Playwright", "GitLab CI"],
   },
   {
     numero: "04",
-    titulo: "Despliegue full-stack contenerizado en producción",
-    empresa: "Ambiensa S.A. · 2023–2025",
+    titulo: "Despliegues fullstack en contenedores",
+    contexto: "Ambiensa S.A. · 2023–2025",
     descripcion:
-      "Implementé proyectos React + Laravel + Docker + Apache completos desde cero, incluyendo configuración de dominio, certificado SSL y proxy reverso en servidores de producción. Administración de instancias MySQL, PostgreSQL y MongoDB en servidores dedicados.",
-    techs: ["Docker", "Docker Compose", "Apache", "Laravel", "React", "MySQL", "PostgreSQL", "MongoDB"],
-    color: "from-green-500 to-indigo-500",
+      "Proyectos React + Laravel sobre Docker y Apache, puestos en producción con dominio, SSL y proxy reverso. Administración de instancias MySQL, PostgreSQL y MongoDB en servidores dedicados.",
+    techs: ["Docker Compose", "Apache", "Laravel", "React", "MySQL", "PostgreSQL", "MongoDB"],
   },
 ];
 
 export default function Proyectos() {
   return (
-    <section id="proyectos" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            Trabajo real
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Logros <span className="gradient-text">destacados</span>
-          </h2>
-          <p className="text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">
-            Proyectos e iniciativas ejecutados en entornos productivos reales,
-            no ejercicios de práctica.
-          </p>
-        </div>
-
-        {/* Logros list */}
-        <div className="space-y-6">
-          {logros.map((p) => (
-            <div
-              key={p.numero}
-              className="card p-8 group"
-            >
-              <div className="flex flex-col lg:flex-row lg:items-start gap-6">
-                {/* Number */}
-                <div
-                  className={`text-5xl font-black bg-gradient-to-br ${p.color} bg-clip-text text-transparent opacity-30 group-hover:opacity-60 transition-opacity shrink-0 leading-none`}
-                >
-                  {p.numero}
-                </div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex items-start justify-between gap-4 mb-1 flex-wrap">
-                    <h3 className="text-xl font-bold group-hover:text-white transition-colors">
-                      {p.titulo}
-                    </h3>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 border border-green-500/30 text-green-400 shrink-0">
-                      <CheckCircle size={11} />
-                      Producción
-                    </span>
-                  </div>
-                  <p className="text-indigo-300/70 text-xs mb-3">{p.empresa}</p>
-                  <p className="text-[var(--text-muted)] leading-relaxed text-sm mb-5">
-                    {p.descripcion}
-                  </p>
-
-                  {/* Techs */}
-                  <div className="flex flex-wrap gap-2">
-                    {p.techs.map((t) => (
-                      <span
-                        key={t}
-                        className="px-2.5 py-1 text-xs rounded-lg bg-[rgba(99,102,241,0.08)] border border-[rgba(99,102,241,0.2)] text-indigo-300"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* GitHub CTA */}
-        <div className="text-center mt-12">
-          <a
-            href="https://github.com/DalemDev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(99,102,241,0.3)] text-[var(--text-muted)] hover:text-white hover:border-indigo-500 hover:bg-indigo-500/10 transition-all duration-200 text-sm font-medium"
+    <Section id="proyectos" label="Proyectos">
+      <ol className="divide-y divide-line">
+        {logros.map((p) => (
+          <li
+            key={p.numero}
+            className="grid gap-3 py-10 first:pt-0 last:pb-0 sm:grid-cols-[3rem_1fr]"
           >
-            <GithubIcon size={16} />
-            Ver mis repositorios en GitHub
-          </a>
-        </div>
-      </div>
-    </section>
+            <span className="font-mono text-xs text-subtle sm:pt-1.5">{p.numero}</span>
+            <div>
+              <h3 className="text-lg font-medium tracking-tight">{p.titulo}</h3>
+              <p className="mt-1 text-sm text-muted">{p.contexto}</p>
+              <p className="mt-4 leading-relaxed text-muted">{p.descripcion}</p>
+              <p className="mt-5 font-mono text-xs leading-relaxed text-subtle">
+                {p.techs.join(" · ")}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <a
+        href="https://github.com/DalemDev"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="link mt-12 inline-flex items-center gap-1 text-sm"
+      >
+        Más en GitHub <ArrowUpRight size={14} strokeWidth={1.5} />
+      </a>
+    </Section>
   );
 }
